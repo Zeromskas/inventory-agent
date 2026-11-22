@@ -1,0 +1,33 @@
+{
+  "config": {
+    "system": "inventory.agent.InventoryAgent",
+    "system_options": {
+      "model": "qwen2.5:7b",
+      "think": null
+    },
+    "judge_model": "qwen3.5:2b",
+    "tasks_sha256": "96d4ceb855bfc88dda4f8d274bf16276ccae61078c8835d3264bc6396d44f5e5"
+  },
+  "total": 20,
+  "passed": 15,
+  "failed": 5,
+  "needs_review": 0,
+  "db_state": {
+    "correct": 17,
+    "incorrect": 3
+  },
+  "tool_calls": {
+    "total": 25,
+    "invalid": 2
+  },
+  "answer_checks": {
+    "passed": 16,
+    "failed": 4,
+    "needs_review": 0
+  },
+  "timing": {
+    "system_seconds": 200.894297,
+    "judge_seconds": 57.334452,
+    "total_seconds": 258.38532
+  }
+}

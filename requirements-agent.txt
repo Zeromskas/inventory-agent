@@ -1,0 +1,4 @@
+# Agent runtime dependencies.
+ollama==0.6.3
+jsonschema==4.26.0
+tqdm==4.70.1

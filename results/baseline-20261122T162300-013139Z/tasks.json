@@ -1,0 +1,572 @@
+{
+  "initial_products": [
+    {
+      "id": 1,
+      "name": "Drill",
+      "quantity": 10,
+      "price_cents": 9000
+    },
+    {
+      "id": 2,
+      "name": "Phillips screwdriver",
+      "quantity": 15,
+      "price_cents": 1000
+    },
+    {
+      "id": 3,
+      "name": "Flathead screwdriver",
+      "quantity": 20,
+      "price_cents": 1000
+    },
+    {
+      "id": 4,
+      "name": "Hammer",
+      "quantity": 5,
+      "price_cents": 3000
+    }
+  ],
+  "tasks": [
+    {
+      "id": "list_products",
+      "request": "List all products.",
+      "operation": "read",
+      "expected_stop_reason": "completed",
+      "expected_answer": "List Drill, Phillips screwdriver, Flathead screwdriver, and Hammer."
+    },
+    {
+      "id": "check_quantity",
+      "request": "How many drills are in stock?",
+      "operation": "read",
+      "expected_stop_reason": "completed",
+      "expected_answer": "State that 10 drills are in stock."
+    },
+    {
+      "id": "add_product",
+      "request": "Add a new product: 'Wrench' with price 25.00 euros.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 10,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3000
+        },
+        {
+          "id": 5,
+          "name": "Wrench",
+          "quantity": 0,
+          "price_cents": 2500
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Confirm Wrench was added with quantity 0 and unit price 25.00 euros."
+    },
+    {
+      "id": "modify_product",
+      "request": "Change the price of the 'Hammer' to 35.00 euros.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 10,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3500
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Confirm Hammer unit price was changed to 35.00 euros."
+    },
+    {
+      "id": "check_price",
+      "request": "What is the price of the Hammer?",
+      "operation": "read",
+      "expected_stop_reason": "completed",
+      "expected_answer": "State that Hammer unit price is 30.00 euros."
+    },
+    {
+      "id": "find_screwdrivers",
+      "request": "Which screwdrivers do we have?",
+      "operation": "read",
+      "expected_stop_reason": "completed",
+      "expected_answer": "Identify Phillips screwdriver and Flathead screwdriver as the available screwdrivers."
+    },
+    {
+      "id": "missing_product",
+      "request": "Do we have a Saw?",
+      "operation": "read",
+      "expected_stop_reason": "completed",
+      "expected_answer": "Explain that no saw is currently in inventory."
+    },
+    {
+      "id": "set_quantity",
+      "request": "Set the quantity of the Drill to 12.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 12,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3000
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Confirm Drill quantity was set to 12."
+    },
+    {
+      "id": "increase_quantity",
+      "request": "Add five units to the Phillips screwdriver stock.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 10,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3000
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Confirm Phillips screwdriver stock increased by five, from 15 to 20."
+    },
+    {
+      "id": "rename_product",
+      "request": "Rename 'Flathead screwdriver' to 'Slotted screwdriver'.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 10,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Slotted screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3000
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Confirm Flathead screwdriver was renamed to Slotted screwdriver."
+    },
+    {
+      "id": "ambiguous_product",
+      "request": "Set the quantity of the screwdriver to 5.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 10,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3000
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "No change should be made as the request is ambiguous.Ask whether the user means Phillips screwdriver or Flathead screwdriver."
+    },
+    {
+      "id": "duplicate_product",
+      "request": "Add a new product called 'hammer' with quantity 100 and price 25.00 euros.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 10,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3000
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Explain that Hammer already exists and no new product was added."
+    },
+    {
+      "id": "conflicting_rename",
+      "request": "Rename 'Drill' to 'Hammer'.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 10,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3000
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Explain that Drill cannot be renamed to Hammer because that name already exists; do not claim a change."
+    },
+    {
+      "id": "negative_price",
+      "request": "Set the price of the Hammer to -1.00 euros.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 10,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3000
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Explain that a negative price is invalid; do not claim a change."
+    },
+    {
+      "id": "zero_quantity",
+      "request": "Set the quantity of the Hammer to 0.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 10,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 0,
+          "price_cents": 3000
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Confirm Hammer quantity was set to zero."
+    },
+    {
+      "id": "missing_price",
+      "request": "Add a new product called Pliers.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 10,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3000
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Ask the user for the price of Pliers before adding it; do not claim it was added."
+    },
+    {
+      "id": "add_with_quantity",
+      "request": "Add a new product called Wrench with quantity 7 and price 25.00 euros.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 10,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3000
+        },
+        {
+          "id": 5,
+          "name": "Wrench",
+          "quantity": 7,
+          "price_cents": 2500
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Confirm Wrench was added with quantity 7 and unit price 25.00 euros."
+    },
+    {
+      "id": "negative_quantity",
+      "request": "Set the quantity of the Hammer to -1.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 10,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3000
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Explain that a negative stock quantity is invalid; do not claim a change."
+    },
+    {
+      "id": "zero_price",
+      "request": "Set the price of the Phillips screwdriver to 0.00 euros.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 10,
+          "price_cents": 9000
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 0
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3000
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Confirm Phillips screwdriver unit price was set to zero."
+    },
+    {
+      "id": "modify_multiple_fields",
+      "request": "Set the Drill quantity to 7 and its price to 85.00 euros.",
+      "operation": "write",
+      "expected_products": [
+        {
+          "id": 1,
+          "name": "Drill",
+          "quantity": 7,
+          "price_cents": 8500
+        },
+        {
+          "id": 2,
+          "name": "Phillips screwdriver",
+          "quantity": 15,
+          "price_cents": 1000
+        },
+        {
+          "id": 3,
+          "name": "Flathead screwdriver",
+          "quantity": 20,
+          "price_cents": 1000
+        },
+        {
+          "id": 4,
+          "name": "Hammer",
+          "quantity": 5,
+          "price_cents": 3000
+        }
+      ],
+      "expected_stop_reason": "completed",
+      "expected_answer": "Confirm Drill quantity was set to 7 and its unit price to 85.00 euros."
+    }
+  ]
+}
